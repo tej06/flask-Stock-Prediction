@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stock Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <!--link rel="stylesheet" href="../static/css/main.css'" /-->
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="menu-container">
+      <div class="menu">
+        <div class="about"><a href="#">About</a></div>
+        <div class="heading"><h1>STOCK PREDICTOR</h1></div>
+        <div class="links">
+          <div class="signup"><a href="#">SignUp</a></div>
+          <div class="blank"></div>
+          <div class="login"><a href="#">Login</a></div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="query-container">
+      <div class="query">
+        <form id="first-query-form" class="query-form" method="post" enctype="multipart/form-data">
+          <div class="inputs">
+            <div class="stock-container">
+              <div class="stock-header">Stock</div>
+              <div class="stock-name">
+                <input id="stock-id" type="text" name="stock" />
+              </div>
+            </div>
+
+            <div class="regressor-select">
+              <div class="regressor-header">Regression Model</div>
+              <select id="regressor-id" class="regression" name="regressor">
+                <option value="0">Select regressor:</option>
+                <option value="LinearRegression">LinearRegression</option>
+                <option value="PolynomialRegression">PolynomialRegression</option>
+                <option value="KNNRegression">KNNRegression</option>
+                <option value="MLPRegression">MLPRegression</option>
+              </select>
+            </div>
+
+            <div class="start-date-container">
+              <div class="start-date-header">Start Date</div>
+              <div class="start-date">
+                <input id="start-date-id" type="date" name="start-date-name" placeholder="yyyy-mm-dd" value="2010-01-01"/>
+              </div>
+            </div>
+
+            <div class="end-date-container">
+              <div class="end-date-header">End Date</div>
+              <div class="end-date">
+                <input id="end-date-id" type="date" name="end-date-name" placeholder="yyyy-mm-dd" value="2019-08-30"/>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="query-submit">
+          <button id="query-form-submit-button" class="query-submit-button">Predict</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <img id="image-result" src=""/>
+    </h3>
+
+  </body>
+
+
+</html>
